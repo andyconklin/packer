@@ -3,10 +3,12 @@
 #include "types.h"
 #include "utils.h"
 
-class Tmd {
+class Tmd 
+{
     int LoadValuesFromBuffer(VBYTES const & buffer);
     
-    enum {
+    enum 
+    {
         SIGTYPE_RSA_4096_SHA1 = 0x010000,
         SIGTYPE_RSA_2048_SHA1 = 0x010001,
         SIGTYPE_ECDSA_SHA1 = 0x010002,
@@ -18,7 +20,8 @@ class Tmd {
     u32 signature_type;
     VBYTES signature;
 
-    struct header_t {
+    struct header_t 
+    {
         VBYTES signature_issuer;
         u8 version;
         u8 ca_crl_version;
@@ -40,7 +43,8 @@ class Tmd {
         VBYTES sha256_hash_of_content_info_records;
     } header;
 
-    struct content_info_t {
+    struct content_info_t 
+    {
         u16 content_index_offset;
         u16 content_command_count;
         VBYTES sha256_hash_of_next_records;
@@ -48,7 +52,8 @@ class Tmd {
 
     std::vector<struct content_info_t> info_records;
 
-    struct content_chunk_t {
+    struct content_chunk_t 
+    {
         u32 content_id;
         u16 content_index;
         u16 content_type;

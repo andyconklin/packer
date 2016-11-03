@@ -10,7 +10,8 @@ int Tmd::LoadValuesFromBuffer(VBYTES const & buffer)
 
     this->signature_type = get_u32(buffer, 0);
 
-    switch (this->signature_type) {
+    switch (this->signature_type) 
+    {
     case SIGTYPE_RSA_4096_SHA1:
     case SIGTYPE_RSA_4096_SHA256:
         signature_size = 0x200;
@@ -60,7 +61,8 @@ int Tmd::LoadValuesFromBuffer(VBYTES const & buffer)
 
     info_offset = header_offset + 0xC4;
 
-    for (u32 i = 0; i < 64; i++) {
+    for (u32 i = 0; i < 64; i++) 
+    {
         info_records.push_back({
             get_u16(buffer, info_offset + (0x24 * i)),
             get_u16(buffer, info_offset + (0x24 * i) + 0x2),
@@ -71,7 +73,8 @@ int Tmd::LoadValuesFromBuffer(VBYTES const & buffer)
 
     chunk_offset = header_offset + 0x9C4;
 
-    for (u32 i = 0; i < header.content_count; i++) {
+    for (u32 i = 0; i < header.content_count; i++) 
+    {
         chunk_records.push_back({
             get_u32(buffer, chunk_offset + (0x30 * i)),
             get_u16(buffer, chunk_offset + (0x30 * i) + 0x4),
@@ -87,5 +90,6 @@ int Tmd::LoadValuesFromBuffer(VBYTES const & buffer)
 
 Tmd::Tmd(VBYTES const & buffer)
 {
-    LoadValuesFromBuffer(buffer);
+    if (LoadValuesFromBuffer(buffer))
+        throw "a fit";
 }

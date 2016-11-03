@@ -146,11 +146,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="aes.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Ticket.cpp" />
     <ClCompile Include="Tmd.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="aes.h" />
+    <ClInclude Include="Ticket.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Tmd.h" />
     <ClInclude Include="types.h" />

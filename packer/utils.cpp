@@ -14,15 +14,18 @@ u64 get_u64(VBYTES const & buffer, u32 index)
         (u64)get_u32(buffer, index + 4);
 }
 
-u16 get_u16(VBYTES const & buffer, u32 index) {
+u16 get_u16(VBYTES const & buffer, u32 index) 
+{
     return (buffer[index] << 8) | buffer[index + 1];
 }
 
-u8 get_u8(VBYTES const & buffer, u32 index) {
+u8 get_u8(VBYTES const & buffer, u32 index) 
+{
     return buffer[index];
 }
 
-VBYTES ReadIntoBuffer(std::string path) {
+VBYTES ReadIntoBuffer(std::string path) 
+{
     /* Got this off stackoverflow*/
     std::ifstream file(path, std::ios::binary | std::ios::ate);
     std::streamsize size = file.tellg();

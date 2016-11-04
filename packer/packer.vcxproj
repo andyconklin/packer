@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="aes.c" />
+    <ClCompile Include="Fst.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Ticket.cpp" />
     <ClCompile Include="Tmd.cpp" />
@@ -154,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aes.h" />
+    <ClInclude Include="Fst.h" />
     <ClInclude Include="Ticket.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Tmd.h" />

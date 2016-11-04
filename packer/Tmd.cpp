@@ -8,9 +8,9 @@ int Tmd::LoadValuesFromBuffer(VBYTES const & buffer)
     u32 info_offset;
     u32 chunk_offset;
 
-    this->signature_type = get_u32(buffer, 0);
+    signature_type = get_u32(buffer, 0);
 
-    switch (this->signature_type) 
+    switch (signature_type) 
     {
     case SIGTYPE_RSA_4096_SHA1:
     case SIGTYPE_RSA_4096_SHA256:
@@ -31,7 +31,7 @@ int Tmd::LoadValuesFromBuffer(VBYTES const & buffer)
         return -1;
     }
 
-    this->signature = VBYTES(buffer.begin() + 4, buffer.begin() + 4 + 
+    signature = VBYTES(buffer.begin() + 4, buffer.begin() + 4 + 
         signature_size);
 
     header_offset = 4 + signature_size + signature_padding;
